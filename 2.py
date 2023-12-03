@@ -8,7 +8,7 @@ args = parser.parse_args()
 
 
 class Game:
-    def __init__(self, line):
+    def __init__(self, line: str):
         line_split = line.split(':')
         game_search = re.search('^Game (\d*)', line_split[0], re.IGNORECASE)
         if not game_search:
@@ -26,7 +26,7 @@ class Game:
         return 'Game {}: {}'.format(self.game, self.sets)
 
 
-def part1(games):
+def part1(games: list[Game]):
     sum = 0
     for game in games:
         valid_game = True
@@ -50,7 +50,7 @@ def part1(games):
     print(sum)
 
 
-def part2(games):
+def part2(games: list[Game]):
     sum = 0
     for game in games:
         required_cubes = {'red': 0, 'blue': 0, 'green': 0}
